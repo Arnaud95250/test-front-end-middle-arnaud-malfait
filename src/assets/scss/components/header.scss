@@ -1,0 +1,43 @@
+#header{
+    width: 100%;
+    line-height: 6vh;
+    background: rgba(82, 77, 0, 0.966);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    border-bottom: solid 2px black;
+    margin-top: -6vh;
+    z-index: 500;
+    ul{
+        display: flex;
+        flex-direction: row;
+        li{
+            color: white;
+            margin-left: 30px;
+            margin-right: 30px;
+            list-style: none;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        li:hover{
+            color: rgb(246, 255, 162);
+            
+        }
+        .notif{
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: -22px;
+            img{
+                height: 20px;
+            }
+            span{
+                color: white;
+                
+                
+            }
+        }
+        
+    }
+}

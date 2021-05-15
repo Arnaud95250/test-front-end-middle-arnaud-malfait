@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    text-decoration: none;
+}
+
+body{
+    background-image: url("./assets/img/background.jpg");
+    object-fit: contain;
+    background-attachment: fixed;
+    min-height: 100%;
+    margin-top: 6vh;
+
+}
+

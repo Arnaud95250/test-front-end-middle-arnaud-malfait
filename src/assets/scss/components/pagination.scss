@@ -1,0 +1,30 @@
+/* PAGINATION */
+#pagination {
+  width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto 40px auto;
+    position: relative;
+    z-index: 2;
+    img{
+      background: rgba(82, 77, 0, 0.966);
+      margin-top:30px ;
+      margin-bottom:-20px ;
+      width: 30px;
+      height: auto;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    img:hover{
+      background: rgba(129, 121, 2, 0.966);
+    }
+    p{
+      color: rgb(155, 153, 153);
+      font-weight: 700;
+      margin: 45px 20px 0px 20px;
+
+    }
+  }
+  

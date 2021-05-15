@@ -1,0 +1,12 @@
+#search{
+    z-index: 501;
+    position: fixed;
+    right: 11%;
+    top: 1.5vh;
+    input{
+        width: 150px;
+        height: 3vh;
+        border: none;
+        border-radius: 2px;
+    }
+}

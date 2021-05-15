@@ -1,0 +1,73 @@
+#beerCart{
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+       
+    .container{
+        width: 60%;
+        
+        .content_product{
+            background: rgba(82, 77, 0, 0.795);
+            display: flex;
+            justify-content: space-around;
+            align-self: center;
+            align-items: center;
+            height: 150px;
+            border-radius: 10px;
+            margin: 50px;
+            padding: 10px;
+            a img{
+                height: 150px;
+                
+            }
+            .content_product_info{
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+                width: 50%;
+                display: flex;
+                font-weight: bold;
+                div:first-child{
+                    padding: 10px;
+                    border-right: solid 2px;
+                    border-left: solid 2px;
+                    
+                }
+                div:last-child{
+                    padding: 10px;
+                    border-right: solid 2px;
+                    text-align: center;
+                    
+                }
+            }
+            div>button{
+                background: rgb(161, 161, 161);
+                height: 30px;
+                width: 30px;
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 30px;
+            }
+        }
+    }
+    .content_no_cart{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        .no_cart{
+            background: rgba(0, 0, 0, 0.486);
+            height: 60vh;
+            width: 80vw;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            align-items: center;
+            border-radius: 40px;
+            color: white;
+        }
+    }
+    
+}
+

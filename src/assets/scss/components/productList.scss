@@ -1,0 +1,41 @@
+#productList{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .container{
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        text-align: center;
+        .info_beer{
+            background: rgba(82, 77, 0, 0.418);
+            border-radius: 20px;
+            color: white;
+            margin: 10px;
+            width: 200px;
+            cursor: pointer;
+            z-index: 1;
+            img{
+                height: 150px;
+            }
+        }   
+        .info_beer:hover{
+            background: rgba(116, 108, 0, 0.548);
+            transition: 0.2s;
+            
+        }        
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #productList {
+        .container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+      
+    }
+}
