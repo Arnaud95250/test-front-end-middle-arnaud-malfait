@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const BeerCart = (beerCookie) => {
-  const cart = beerCookie.cart;
+const BeerCart = ({ panier, removeCart }) => {
+  // const [panier, setPanier] = useState([]);
+  const cart = panier;
   const [arrayCookie, setArrayCookie] = useState(cart);
+
+  // console.log(render.panier);
+  // console.log(removeCart);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,14 +20,8 @@ const BeerCart = (beerCookie) => {
     fetchData();
   }, [cart]);
 
-  const remove = (index) => {
-    const value = arrayCookie.indexOf(index);
-    console.log(value);
-    // if (value > -1) {
-    arrayCookie.splice(value, 1);
-    setArrayCookie(arrayCookie);
-    // }
-    // console.log(arrayCookie);
+  const remove = (value) => {
+    removeCart(value);
   };
 
   return (
@@ -37,20 +35,53 @@ const BeerCart = (beerCookie) => {
                 <Link to={`/beerdetail/${beerId}`}>
                   <img src={elem.image} alt="" />
                 </Link>
-                <Link className="content_product_info">
+                <div className="content_product_info">
                   <div>
-                    <label>Name </label>
+                    <label>Name :</label>
                     <p>{elem.name}</p>
                   </div>
                   <div>
-                    <label>Quantity </label>
+                    <label>quantite :</label>
                     <p>{elem.quantite}</p>
                   </div>
-                </Link>
+                </div>
 
                 <div>
-                  <button>+</button>
-                  <button onClick={() => remove(index)}>-</button>
+                  <button
+                    onClick={() => {
+                      const tab = [...cart];
+                      for (let i = 0; i < tab.length; i++) {
+                        if (tab[i].id === elem.id) {
+                          if (tab[i].quantite >= 1) {
+                            tab[i].quantite = tab[i].quantite - 1;
+                          } else {
+                            // tab.splice(i, 1);
+                            remove(i);
+                          }
+                        }
+                      }
+                      setArrayCookie(tab);
+                    }}
+                  >
+                    -
+                  </button>
+                  <button
+                    onClick={() => {
+                      const tab = [...cart];
+                      for (let i = 0; i < tab.length; i++) {
+                        if (tab[i].id === elem.id) {
+                          if (tab[i].quantite >= 1) {
+                            tab[i].quantite = tab[i].quantite += 1;
+                          } else {
+                            tab[i].quantite = 1;
+                          }
+                        }
+                      }
+                      setArrayCookie(tab);
+                    }}
+                  >
+                    +
+                  </button>
                 </div>
               </div>
             );

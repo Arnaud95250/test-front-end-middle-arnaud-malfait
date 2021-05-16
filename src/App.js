@@ -22,37 +22,56 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Cookies from "js-cookie";
 
 function App() {
-  const [productBeer, setProductBeer] = useState(Cookies.get("productBeer"));
-  const [arrayCookie, setArrayCookie] = useState([]);
-  const cart = arrayCookie;
-  console.log(productBeer);
+  // const [productBeer, setProductBeer] = useState(Cookies.get("productBeer"));
+  const [panier, setPanier] = useState([]);
 
-  const beerCookie = (beer) => {
-    // if (!beer.id === cart.indexOf(beer.id)) {
-    if (beer) {
-      const newtArrayCookie = [...arrayCookie]; // Je créé une copie de mon tableau arrayCookie
-      newtArrayCookie.push(beer); // je push le produit ajouté dans mon tableau
-      setArrayCookie(newtArrayCookie); // j'actualise mon tableau d'origine avec la copie
-      setProductBeer(arrayCookie);
-      Cookies.set("productBeer", arrayCookie, { expires: 7 }); // création du cookie Cookies.set("nom_du_cookie", paramettre que je stock, { la date ou le cookie doit disparaitre: 7 });
+  // Function qui ajoute un produit au panier ou modifie la quantité
+  const myCart = (value) => {
+    const tab = [...panier];
+    if (tab.length === null) {
+      tab.push(value);
+      setPanier(tab);
     } else {
-      console.log("error");
+      let isPresent = false;
+      for (let i = 0; i < tab.length; i++) {
+        if (tab[i].id === value.id) {
+          isPresent = true;
+          if (tab[i].quantite >= 1) {
+            tab[i].quantite = tab[i].quantite + 1;
+          } else {
+            tab.splice(i, 1);
+          }
+        }
+      }
+      if (isPresent === false) {
+        tab.push(value);
+      }
+      setPanier(tab);
+      Cookies.set("productBeer", tab, { expires: 7 });
     }
   };
 
+  // Function qui supprime un produit du panier
+  const removeCart = (value) => {
+    panier.splice(value, 1);
+    setPanier(panier);
+    Cookies.set("productBeer", panier, { expires: 7 });
+  };
+
+  // Route vers les différentes pages (componenents, containers)
   return (
     <div className="App">
       <Router>
-        <Header beerCookie={beerCookie} cart={cart} />
+        <Header panier={panier} />
         <Switch>
           <Route path="/beercart">
-            <BeerCart beerCookie={beerCookie} cart={cart} />
+            <BeerCart panier={panier} removeCart={removeCart} />
           </Route>
           <Route path="/beerdetail/:beerId">
-            <BeerDetail beerCookie={beerCookie} />
+            <BeerDetail myCart={myCart} />
           </Route>
           <Route path="/">
-            <BeerList beerCookie={beerCookie} />
+            <BeerList myCart={myCart} />
           </Route>
         </Switch>
         <Footer />

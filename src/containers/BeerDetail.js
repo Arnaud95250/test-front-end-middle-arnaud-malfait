@@ -5,10 +5,9 @@ import axios from "axios";
 //******************Components*******************
 import Details from "../components/Details";
 
-const BeerDetail = ({ beerCookie }) => {
+const BeerDetail = ({ myCart }) => {
   let { beerId } = useParams(); // je récupère et stock l'id produit transmit dans l'URL
   const [data, setData] = useState([]); // Je stock le produit récupèré avec ma requete axios à l'ouverture dans la page (useEffect)
-  const [pushQuantite, setPushQuantite] = useState(); // je stock la quantité choisie dans l'input
   const [isLoading, setIsLoading] = useState(true); // state qui permet de gérer l'affichage asynchrone
 
   //********************************************************************
@@ -30,12 +29,8 @@ const BeerDetail = ({ beerCookie }) => {
   }, [beerId]);
 
   //function ajout de produit dans le panier
-  const addProduct = (product) => {
-    if (pushQuantite > 0 && pushQuantite.length <= 3 && product) {
-      beerCookie(product); // je stock mon objet en argument qui permettra de remonter les infos au component parent (App.js)
-    } else {
-      alert("3 chiffres maximum autorisé et 1 article minimum");
-    }
+  const addProduct = (value) => {
+    myCart(value);
   };
 
   //********************************************************************
@@ -49,12 +44,7 @@ const BeerDetail = ({ beerCookie }) => {
       ) : (
         <div className="container">
           {/* component Details.js */}
-          <Details
-            data={data}
-            setPushQuantite={setPushQuantite}
-            addProduct={addProduct}
-            pushQuantite={pushQuantite}
-          />
+          <Details data={data} addProduct={addProduct} />
         </div>
       )}
     </div>

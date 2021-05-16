@@ -1,4 +1,6 @@
-const Details = ({ data, setPushQuantite, addProduct, pushQuantite }) => {
+const Details = ({ data, addProduct }) => {
+  // const [counter, setCounter] = useState(Number);
+
   return (
     <div className="container">
       {/* je boucle sur mon tableau pour récupèrer le contenue */}
@@ -32,19 +34,13 @@ const Details = ({ data, setPushQuantite, addProduct, pushQuantite }) => {
                       id: productId,
                       name: elem.name,
                       image: elem.image_url,
-                      quantite: pushQuantite,
+                      quantite: 1,
                     })
                   }
                 >
                   Ajouter au panier
                 </button>
-                <input
-                  type="number"
-                  placeholder="ex: 1"
-                  required
-                  maxLength="3"
-                  onChange={(event) => setPushQuantite(event.target.value)}
-                ></input>
+                {/* <h1>{counter}</h1> */}
               </div>
             </div>
           </div>

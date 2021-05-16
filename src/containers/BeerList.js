@@ -7,7 +7,7 @@ import Pagination from "../components/Pagination";
 import Search from "../components/Search";
 import ProductList from "../components/ProductList";
 
-const BeerList = ({ beerCookie }) => {
+const BeerList = ({ myCart }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [offset, setOffset] = useState(1);
@@ -48,6 +48,10 @@ const BeerList = ({ beerCookie }) => {
       );
       setData(response.data);
     } catch (error) {}
+  };
+
+  const beerCookie = (value) => {
+    myCart(value);
   };
 
   return (
