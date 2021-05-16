@@ -52,13 +52,15 @@
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 900px) {
     #productList {
         .container{
             width: 100%;
             display: flex;
             justify-content: center;
+            .info_beer{
+                width: 250px;                
+            }
         }
-      
     }
 }

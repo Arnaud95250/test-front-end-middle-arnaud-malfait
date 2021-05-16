@@ -10,3 +10,13 @@
         border-radius: 2px;
     }
 }
+
+@media screen and (max-width: 900px) {
+    #search{
+        top: 7vh;
+        right: 5%;
+        input{
+            width: 100px;
+        }
+    }
+}

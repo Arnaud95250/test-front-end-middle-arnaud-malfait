@@ -1,4 +1,4 @@
-const Details = ({ data, addProduct }) => {
+const Details = ({ data, myCart }) => {
   // const [counter, setCounter] = useState(Number);
 
   return (
@@ -28,9 +28,10 @@ const Details = ({ data, addProduct }) => {
                 <span>Déscription: </span> {elem.description}
               </p>
               <div className="add_product">
+                {/* j'ajoute un produit => array[(objet)] */}
                 <button
                   onClick={() =>
-                    addProduct({
+                    myCart({
                       id: productId,
                       name: elem.name,
                       image: elem.image_url,

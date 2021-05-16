@@ -1,9 +1,9 @@
+//******************Packages*******************
 import { Link } from "react-router-dom";
 import caddy from "../assets/img/cart.png";
 
 const Header = (panier) => {
   const cart = panier.panier;
-  console.log(cart.length);
 
   return (
     <div id="header">

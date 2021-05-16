@@ -1,21 +1,19 @@
+//******************Packages*******************
 import { Link } from "react-router-dom";
 
-const ProductList = ({ beerCookie, data }) => {
-  const addProduct = (product) => {
-    beerCookie(product);
-  };
-
+const ProductList = ({ myCart, data }) => {
   return (
     <div id="productList">
       <div className="container">
         {data.map((elem, index) => {
           const beerId = elem.id;
           return (
-            <>
-              <div key={index} className="info_beer">
+            <div key={index}>
+              <div className="info_beer">
+                {/* button qui permet d'ajouter un produit (un objet avec les différentes infos a stocker) */}
                 <button
                   onClick={() =>
-                    addProduct({
+                    myCart({
                       id: beerId,
                       name: elem.name,
                       image: elem.image_url,
@@ -32,7 +30,7 @@ const ProductList = ({ beerCookie, data }) => {
                 </Link>
                 <div className="button_list"></div>
               </div>
-            </>
+            </div>
           );
         })}
       </div>

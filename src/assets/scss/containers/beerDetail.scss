@@ -17,8 +17,6 @@
             margin: 10px;
             width: 80%;
             height: 70vh ;
-            
-            color:white;
             button{
                 background: rgb(126, 115, 54);
                 border:solid 2px black;
@@ -64,5 +62,44 @@
                 }
             }
         }   
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #beerDetail{
+        width: 100%;
+        .container{
+            .info_beer{
+                display: block;
+                margin: 20px 0px 50px 0px;
+                width: 95%;
+                height: auto;
+                
+                .content_img{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-content: center;
+                    img{
+                        height: 25vh;                       
+                    }
+                }
+                .content_text{
+                    margin: 15px 15px 50px 15px;
+                    p{
+                        margin-bottom: 20px;
+                        color: rgb(201, 195, 195);
+                        span{
+                            font-weight: bold;
+                            color: rgb(201, 195, 195);
+                        }
+                    }
+                    .add_product{
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
     }
 }

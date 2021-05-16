@@ -1,3 +1,4 @@
+//******************Packages*******************
 import { useState } from "react";
 import chevronLeft from "../assets/img/chevron-left.svg";
 import chevronRight from "../assets/img/chevron-right.svg";
@@ -9,6 +10,7 @@ const Pagination = ({ offset, pagination }) => {
       <img
         src={chevronLeft}
         alt="left"
+        //je retire 1 a offset ce qui permettra de passer à la page précédente
         onClick={(e) => {
           if (offset > 1) {
             pagination((offset -= 1));
@@ -20,6 +22,7 @@ const Pagination = ({ offset, pagination }) => {
       <img
         src={chevronRight}
         alt="right"
+        //j'ajoute 1 a offset ce qui permettra de passer à la page suivante
         onClick={(e) => {
           if (offset > 0) {
             pagination((offset += 1));

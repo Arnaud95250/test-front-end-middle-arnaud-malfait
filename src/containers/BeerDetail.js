@@ -27,12 +27,6 @@ const BeerDetail = ({ myCart }) => {
     };
     fetchData();
   }, [beerId]);
-
-  //function ajout de produit dans le panier
-  const addProduct = (value) => {
-    myCart(value);
-  };
-
   //********************************************************************
   //*************************AFFICHAGE***********************************
   return (
@@ -42,10 +36,10 @@ const BeerDetail = ({ myCart }) => {
           <p>En cours de chargement</p>
         </div>
       ) : (
-        <div className="container">
+        <>
           {/* component Details.js */}
-          <Details data={data} addProduct={addProduct} />
-        </div>
+          <Details data={data} myCart={myCart} />
+        </>
       )}
     </div>
   );
